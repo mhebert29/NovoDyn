@@ -32,6 +32,10 @@ def welcome():
 	l.config(font=("Courier", 18))
 	l.place(x = 110, y = 10)
 
-welcome()
-addWidgets()
-master.mainloop()
+def main():
+	welcome()
+	addWidgets()
+	master.mainloop()
+
+if __name__ == '__main__':
+    main()
