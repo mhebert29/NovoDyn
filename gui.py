@@ -19,11 +19,12 @@ def addWidgets():
 	button3.place(x=415, y=600)
 
 def showImageNext():
-	myImage = Image.open("parrot.jpg") ## open the images ##
+	myImage = Image.open("FrontTeeth.jpg") ## open the images ##
+	myImage = myImage.resize((450,400), Image.ANTIALIAS)
 	test = ImageTk.PhotoImage(myImage)
-	label1 = tkinter.Label(image=test)
+	label1 = tkinter.Label(master, image=test)
 	label1.image = test
-	label1.place(x=110, y=10)
+	label1.place(x=210, y=150)
 
 
 def welcome():
