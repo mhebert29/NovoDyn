@@ -9,7 +9,7 @@ master.title("Preternship Trial GUI")
 master.geometry("850x650")
 master.configure(background = 'black')
 
-## list of images --- data received from Mr. McMillan ##
+## list of images --- data received from Mr. McMillan (NovoDynamics) ##
 imageList = ["composite-1.png", "composite-2.jpg", "composite-3.jpg", "composite-4.jpg", "composite-5.jpg", "composite-6.jpg", 
 		     "composite-7.jpg", "composite-8.png", "composite-9.png", "composite-10.jpg", "composite-11.jpg", "composite-12.jpg",
 		     "composite-13.jpg", "composite-14.jpg", "composite-15.jpg", "composite-16.jpg", "composite-17.jpg", "composite-18.jpg",
@@ -36,35 +36,28 @@ def addWidgets():
 def showImageNext():
 	global imageNum ##### global variable
 
-	imageNum = imageNum+1
-
 	### check in bounds ###
-	if 0 <= imageNum < len(imageList):
+	if 0 <= imageNum+1 < len(imageList):
+		imageNum = imageNum+1
 		myImage = Image.open(imageList[imageNum]) ## open the images ##
-		myImage = myImage.resize((475,450), Image.ANTIALIAS)
+		myImage = myImage.resize((650,450), Image.ANTIALIAS)
 		test = ImageTk.PhotoImage(myImage)
-		label1 = tkinter.Label(master, image=test)
+		label1 = tkinter.Label(master, image=test, bd = 0)
 		label1.image = test
-		label1.place(x=200, y=90)
-	else:
-		imageNum = imageNum-1
+		label1.place(x=100, y=90)
 
 def showImagePrev():
 	global imageNum ##### global variable
 
-	imageNum = imageNum-1
-
 	### check in bounds ###
-	if 0 <= imageNum < len(imageList):
+	if 0 <= imageNum-1 < len(imageList):
+		imageNum = imageNum-1
 		myImage = Image.open(imageList[imageNum]) ## open the images ##
-		myImage = myImage.resize((450,400), Image.ANTIALIAS)
+		myImage = myImage.resize((650,450), Image.ANTIALIAS)
 		test = ImageTk.PhotoImage(myImage)
-		label1 = tkinter.Label(master, image=test)
+		label1 = tkinter.Label(master, image=test, bd = 0)
 		label1.image = test
-		label1.place(x=210, y=150)
-	else:
-		imageNum = imageNum+1
-
+		label1.place(x=100, y=90)
 
 def welcome():
 	text1 = tkinter.Text(master, height = 5, width = 40)
