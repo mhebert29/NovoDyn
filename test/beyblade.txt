@@ -1,0 +1,4 @@
+blades = {
+	"name" : "ryuga"
+	"number" : "20"
+}

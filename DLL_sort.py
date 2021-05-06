@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-# Python 3 version of CC04 Sorted Doubly Linked List
-# Replace numbers in main with data images
-#   Potentially use their md5sum, mod, or pre-assigned int to establish
-#   numerical value flags
-#
+import sys
+import os
+import json
+import pathlib
 
 # Node of DLL
 class Node:
@@ -11,6 +10,7 @@ class Node:
     self.data = data
     self.next = None
     self.prev = None
+########################################
 
 class DoublyLinkedList:
   def __init__(self):
@@ -58,16 +58,31 @@ class DoublyLinkedList:
       print(str(node.data), end = " ")
       node = node.next
 
+# Function to go through list args (aka dir)
+
+
   #Driver code
 if __name__ == '__main__':
-  llist = DoublyLinkedList()
-  llist.sortedInsert(8)
-  llist.sortedInsert(4)
-  llist.sortedInsert(20)
-  llist.sortedInsert(17)
 
+  # Check for correct inputs
+  if len(sys.argv) != 2:
+    print("Incorrect number of inputs")
+    sys.exit()
+
+  # Make List
+  llist = DoublyLinkedList() 
+  llist.sortedInsert(0)
+  llist.sortedInsert(100)
+
+  # Add args to list
+  for filename in os.listdir(sys.argv[1]):
+    print(f"  Adding File: {filename}")
+  # print(f"  Sorting by: {filename.number}");
+  # llist.sortedInsert(filename.number)
+
+
+  # Print List
   print("Created Doubly Linked List")
   llist.printList()
   print("\n")
 
-# This Code is contributed by Siddhartha Pramanik
