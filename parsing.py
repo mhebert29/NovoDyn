@@ -7,14 +7,12 @@ from pathlib import Path
 
 
 def findtags(folder,tags):
-	outlist = []
+	outlist = {}
 	filteredtags = {}
 	for filename in os.listdir(folder):
 		for tag in tags:
-			print(f"setting {tag} to false")
 			filteredtags[tag] = False;
 		mypath = folder + "/" + filename
-		print(f"path: {mypath}")
 		with open(mypath) as f:
 			data = json.load(f)
 			for region in data["regions"]:
@@ -22,8 +20,7 @@ def findtags(folder,tags):
 					if intag in filteredtags:
 						filteredtags[intag] = True
 		if all(filteredtags.values()):
-			outlist.append(filename)
-
+			outlist[data["asset"]["name"]] = len(data["regions"])
 	return outlist
 			
 if __name__ == "__main__":
