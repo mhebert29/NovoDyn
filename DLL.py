@@ -105,11 +105,11 @@ class DoublyLinkedList:
 
 
   # Function to print doubly linked list
-  def printList(self):
-    node = self.head
-    while node:
-      print(str(node.data), end = " ")
-      node = node.next
+ # def printList(self):
+  #  node = self.head
+   # while node:
+    #  print(str(node.data), end = " ")
+     # node = node.next
 
 ###################################################
 def makeOutput(llist):
@@ -130,13 +130,5 @@ def makeOutput(llist):
   for i in postorderIterative(root):
       output.append(llist[i])
 
-  print(f"{output}")
+  return output
 
-
-##################################################
-  #Driver code-----------------------------
-if __name__ == '__main__':
-
-  # Initialize List
-  incomes = {4: "the.jpg", 1: "cow.jpg", 2: "bull.jpg", 3: "farm.jpg", 7: "pig", 5: "sheep", 6: "wool", 8: "red"}
-  makeOutput(incomes)
