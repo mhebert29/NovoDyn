@@ -8,6 +8,8 @@ import tkinter # used to create the GUI
 from PIL import Image, ImageTk # used to display our images 
 from tkinter import Toplevel # used to create multiple windows on GUI 
 import parsing # written by Dawson Flatley, parses thru JSON images, based on flags and returns a dict 
+import DLL # written by Raul Amezcua, creates DLL of images to display to user ##
+
 
 master=tkinter.Tk()
 
@@ -55,6 +57,7 @@ CheckbuttonEnamel = tkinter.IntVar()
 
 
 opList = [] #List used to store the checkboxes selected by the User
+imageList = []
 
 ## Function checker() used to apend a string to opList if box is 
 ## checked, and remove from opList if box is unchecked 
@@ -314,11 +317,13 @@ def checker():
 
 ## function goToImages() used to destroy one window and open the next ##
 def goToImages():
+	global imageList
+
 	opWindow.destroy()
 	imWindow.deiconify()
 
-	theDict = parsing.findtags("Out", opList)
-	print(theDict)
+	theDict = parsing.findtags("Out", opList)  ## Use the parsing program ##
+	imageList = DLL.makeOutput(theDict) ## Use the DLL Program ##
 
 ## Buttons creared to enable checking of boxes on checkbuttons ##
 Button1 = tkinter.Checkbutton(opWindow, text = "1", variable = Checkbutton1, onvalue = 1,
@@ -483,15 +488,7 @@ l.place(x=425,y=50,anchor="center")
 master.withdraw()
 imWindow.withdraw()
 
-## list of images --- data received from Mr. McMillan (NovoDynamics) ##
-imageList = ["composite-1.png", "composite-2.jpg", "composite-3.jpg", "composite-4.jpg", "composite-5.jpg", "composite-6.jpg", 
-		     "composite-7.jpg", "composite-8.png", "composite-9.png", "composite-10.jpg", "composite-11.jpg", "composite-12.jpg",
-		     "composite-13.jpg", "composite-14.jpg", "composite-15.jpg", "composite-16.jpg", "composite-17.jpg", "composite-18.jpg",
-			 "composite-19.jpg", "composite-20.jpg", "composite-21.jpg", "composite-22.jpg", "composite-23.jpg", "composite-24.jpg",
-			 "composite-25.jpg", "composite-26.jpg", "composite-27.png", "composite-28.PNG", "composite-29.jpg", "composite-30.jpg",
-			 "composite-31.jpg", "composite-32.jpg", "composite-33.jpg", "composite-34.jpg", "composite-35.jpg", "composite-36.jpg",
-			 "composite-37.jpg", "composite-38.jpg", "composite-39.jpg", "composite-40.jpg", "composite-41.png", "composite-42.jpg",
-			 "composite-43.png", "composite-44.jpg", "composite-45.jpg"]
+
 imageNum = -1
 
 
