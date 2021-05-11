@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import sys
 import os
 import json
@@ -20,7 +21,7 @@ def findtags(folder,tags):
 					if intag in filteredtags:
 						filteredtags[intag] = True
 		if all(filteredtags.values()):
-			outlist[data["asset"]["name"]] = len(data["regions"])
+			outlist[len(data["regions"])] = data["asset"]["name"]
 	return outlist
 			
 if __name__ == "__main__":
