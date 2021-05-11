@@ -3,7 +3,6 @@
 ## Program allows the user to input specific flags to specificy which images they would like to see ##
 ## Dataset and flags provided by Sean McMillan, Software Engineer @ NovoDynamics ##
 
-
 import tkinter # used to create the GUI 
 from PIL import Image, ImageTk # used to display our images 
 from tkinter import Toplevel # used to create multiple windows on GUI 
@@ -12,7 +11,6 @@ import DLL # written by Raul Amezcua, creates DLL of images to display to user #
 
 
 master=tkinter.Tk()
-
 opWindow = Toplevel(master) # First window to pop up, provides checkboxes to the User
 opWindow.title("Make a pick!")
 opWindow.geometry("200x500")
@@ -62,7 +60,6 @@ imageList = []
 ## Function checker() used to apend a string to opList if box is 
 ## checked, and remove from opList if box is unchecked 
 def checker():
-	
 	if Checkbutton1.get() == 1:
 		if "1" not in opList:
 			opList.append("1")
@@ -488,9 +485,7 @@ l.place(x=425,y=50,anchor="center")
 master.withdraw()
 imWindow.withdraw()
 
-
 imageNum = -1
-
 
 ## Adds buttons to the imWindow pane so the user can scroll thru their images ##
 def addWidgets():
@@ -547,7 +542,6 @@ def showImageFirst():
 	label1 = tkinter.Label(imWindow, image=test, bd = 0)
 	label1.image = test
 	label1.place(x=100, y=100)
-
 
 def showImageLast():
 	global imageNum ##### global variable
