@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 ## Program made for Preternship project May 2021 ##
 ## Maddie Hebert, Raul Amezcua, Dawson Flatley ##
 ## Program allows the user to input specific flags to specificy which images they would like to see ##
